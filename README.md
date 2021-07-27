@@ -14,8 +14,8 @@ Yet this app still needs a lot of work behind the scenes and more optimisation i
     4.  Once the keyboard is built, we enclose this keyboard view inside a rectangle (object of class Rect)
     5.  There is a handle bar on top of this rectangle which is drawn using onDraw(canvas) method and class Path.
         The handle bar, for the purpose of this POC, is self determined.
-            If this POC has to be included as a feature in Bobble and Mint Keyboards,
-            then it would be done as per the directions from the design team at Bobble AI.
+            If this POC has to be included as a feature in any product,
+            then it would be done as per the directions from the design team at that firm.
 
         This handle bar will be used to drag the keyboard view as per the user input -
             if the user drags the handle bar upwards, the keyboard will move upwards.
