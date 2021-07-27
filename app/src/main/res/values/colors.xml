@@ -14,4 +14,10 @@
     <color name="keyboard_background_color">#34495e</color>
     <color name="keyboard_divider">#2c3e50</color>
     <color name="keyboard_pressed">#95a5a6</color>
+
+    <color name="windowHeader">#FF888888</color>
+    <color name="windowHeaderText">#FFFFFFFF</color>
+    <color name="windowHeaderClose">#FFEE7777</color>
+    <color name="windowBody">#FFDDDDDD</color>
+    <color name="windowSend">#FF448844</color>
 </resources>

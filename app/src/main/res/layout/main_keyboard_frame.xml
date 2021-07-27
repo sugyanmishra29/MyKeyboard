@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<FrameLayout-->
+<!--    android:id="@+id/main_keyboard_frame"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_below="@id/parentContainerView"-->
+<!--    android:layout_gravity="bottom"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/custom_background_image"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:visibility="gone"/>-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/dummy_black_frame"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/black"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:visibility="gone" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/animation_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scaleType="centerCrop"/>-->
+
+<!--    &lt;!&ndash;        </FrameLayout>&ndash;&gt;-->
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="top"-->
+<!--        android:focusableInTouchMode="true"-->
+<!--        >-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:id="@+id/suggestionsContainer" >-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/suggestionOverlayContainer"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_height="@dimen/config_suggestions_strip_height"-->
+<!--                />-->
+<!--            &lt;!&ndash; To ensure that key preview popup is correctly placed when the current system locale is-->
+<!--             one of RTL locales, layoutDirection="ltr" is needed in the SDK version 17+. &ndash;&gt;-->
+<!--            <com.android.inputmethod.indic.suggestions.SuggestionStripView-->
+<!--                android:id="@+id/suggestion_strip_view"-->
+<!--                style="?attr/suggestionStripViewStyle"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/config_suggestions_strip_height"-->
+<!--                android:layout_gravity="top"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:layoutDirection="ltr" />-->
+<!--        </LinearLayout>-->
+<!--        <com.mint.keyboard.emojirow.EmojiNumberRowView-->
+<!--            android:id="@+id/emojiNumberViewHolder"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_below="@id/suggestionsContainer"-->
+<!--            android:visibility="gone"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_height="@dimen/config_emoji_row_height" />-->
+<!--    </RelativeLayout>-->
+<!--    &lt;!&ndash; To ensure that key preview popup is correctly placed when the current system locale is-->
+<!--         one of RTL locales, layoutDirection="ltr" is needed in the SDK version 17+. &ndash;&gt;-->
+
+<!--    <com.android.inputmethod.keyboard.MainKeyboardView-->
+<!--        android:id="@+id/keyboard_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_marginTop="@dimen/config_suggestions_strip_height"-->
+<!--        android:layoutDirection="ltr" />-->
+<!--    <com.android.inputmethod.keyboard.MainKeyboardOverlayView-->
+<!--        android:id="@+id/main_keyboard_view_overlay"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_marginTop="@dimen/config_suggestions_strip_height"-->
+<!--        android:layoutDirection="ltr" />-->
+
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/overlayView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:visibility="gone"-->
+<!--        android:orientation="vertical"/>-->
+
+<!--</FrameLayout>-->

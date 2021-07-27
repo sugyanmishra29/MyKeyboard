@@ -5,6 +5,9 @@
     android:verticalGap="0px"
     android:keyHeight="60dp">
 
+<!--    <Row>-->
+<!--        &lt;!&ndash; this is an extra row acting as a handle bar for dragging &ndash;&gt;-->
+<!--    </Row>-->
     <Row>
         <Key android:keyLabel="1"
             android:keyEdgeFlags="left"
