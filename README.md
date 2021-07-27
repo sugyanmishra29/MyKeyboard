@@ -7,7 +7,7 @@ during the app's development process.
 
 Yet this app still needs a lot of work behind the scenes and more optimisation is needed.
 
-LOGIC:
+## LOGIC:
     1.  keyboard.xml file was created whose root element is FloatingKeyboardView.
     2.  qwerty.xml file contains info about the rows in the keyboard layout and the buttons present in it.
     3.  method.xml has info regarding input-method
@@ -21,10 +21,10 @@ LOGIC:
             if the user drags the handle bar upwards, the keyboard will move upwards.
         User can drag the handle bar towards any direction and the keyboard will get dragged accordingly.
 
-ISSUES:
+## ISSUES:
     1.  Unable to get this keyboard floating - this has to be done using WindowManager.addView()
 
-NEW ADDITIONS TO BE MADE:
+## NEW ADDITIONS TO BE MADE:
     1.  Size controllers have to be implemented at the corners of the keyboard view so that the user can adjust the
         size of the keyboard according to his choice.
     2.  Keyboard Layout looks very primitive. Several UI changes are needed. This is just a prototype application
