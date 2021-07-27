@@ -1,9 +1,12 @@
 # MyKeyboard
-I have tried experimenting with several methods, classes that Android provides so as to
-ensure that my program works correctly. Many bugs got introduced in the process.
+This project was created using Android Studio v4.1.
+
+## MOTIVE
+To build a keyboard app which will float just like Gboard and Microsoft Swiftkey. This means a floating keyboard should be shown whenever a text box would be clicked in any app be it Whatsapp, Facebook comment box, Gmail etc. So it won't be an activity, it would be a service that would keep my Keyboard app running in the background. Consider Gboard. It has an activity (screen) which shows your languages, preferences, auto-correct settings etc. But the keyboard via which you type some text, is a service. All the keys that you click on, is inside a view called KeyboardView.
+
+I have tried experimenting with several methods, classes that Android provides so as to ensure that my program works correctly. Many bugs got introduced in the process.
 So, I have commented out several code snippets in this file as an effort to minimise those issues.
-I haven't eliminated such unnecessary code mostly because it could be used at a later stage
-during the app's development process.
+I haven't eliminated such unnecessary code mostly because it could be used at a later stage during the app's development process.
 
 Yet this app still needs a lot of work behind the scenes and more optimisation is needed.
 
