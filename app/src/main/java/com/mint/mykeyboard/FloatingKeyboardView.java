@@ -1,8 +1,6 @@
 package com.mint.mykeyboard;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Service;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -12,25 +10,16 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
-import android.os.Build;
-import android.text.Editable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
 
-import java.lang.reflect.Method;
-
-import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR;
-import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
+import static android.content.Context.WINDOW_SERVICE;
 
 public class FloatingKeyboardView extends KeyboardView {
     private static final int MOVE_THRESHOLD = 0;
@@ -45,30 +34,17 @@ public class FloatingKeyboardView extends KeyboardView {
     private static Paint mHandlePaint;
     private static boolean allignBottomCenter = false;
     private static final String TAG = "FloatingKeyboardView";
-    private WindowManager windowManager;
 
-
-//    //Add the view to the window.
-//    private final WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams(
-//            WindowManager.LayoutParams.WRAP_CONTENT,
-//            WindowManager.LayoutParams.WRAP_CONTENT,
-//            WindowManager.LayoutParams.TYPE_PHONE,
-//            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-//            PixelFormat.TRANSLUCENT);
 
     @SuppressLint("ClickableViewAccessibility")
     public FloatingKeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        // ((Activity) getContext()).getWindow().setFlags(FLAG_LAYOUT_IN_SCREEN, FLAG_LAYOUT_INSET_DECOR);
         topPaddingPx = (int) convertDpToPixel((float) TOP_PADDING_DP, context);
-
 //        this.setOnKeyboardActionListener(mOnKeyboardActionListener);
         this.setOnTouchListener(mKeyboardOntTouchListener);
         this.setPadding(0, (int) convertDpToPixel(TOP_PADDING_DP, context), 0, 0);
 
 
-//        //Add the view to the window -- CAN'T KEEP THIS SNIPPET HERE, UNABLE TO INFLATE FLOATING KEYBOARD VIEW ERROR
-//        windowManager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
 //        windowManager.addView(mFloatingView, params);
 
 //        // TODO: determine where to keep this snippet
@@ -80,11 +56,30 @@ public class FloatingKeyboardView extends KeyboardView {
 //        windowManager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
 //        windowManager.addView(view, wmParams);
 
-        mHandlePaint=new Paint();
+//        mFloatingView = LayoutInflater.from(getContext()).inflate(R.layout.keyboard,null);
+
+//        //Add the view to the window.
+//        final WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams(
+//                WindowManager.LayoutParams.WRAP_CONTENT,
+//                WindowManager.LayoutParams.WRAP_CONTENT,
+//                WindowManager.LayoutParams.TYPE_PHONE,
+//                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+//                PixelFormat.TRANSLUCENT);
+
+//        // TODO: determine where to keep this snippet
+//        //Specify the view position
+//        wmParams.gravity = Gravity.TOP | Gravity.LEFT;        //Initially view will be added to top-left corner
+//        wmParams.x = 0;
+//        wmParams.y = 100;
+//
+//        //Add the view to the window
+//        mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+//        mWindowManager.addView(mFloatingView, wmParams);
+        mHandlePaint = new Paint();
         mHandlePaint.setColor(HANDLE_COLOR);
         mHandlePaint.setStyle(Paint.Style.FILL);
         mHandlePaint.setPathEffect(HANDLE_CORNER_EFFECT);
-        mHandlePath=new Path();
+        mHandlePath = new Path();
     }
 
 //    public static boolean isAllignBottomCenter() {
@@ -128,7 +123,6 @@ public class FloatingKeyboardView extends KeyboardView {
         mHandlePath.lineTo(width, topPaddingPx);
     }
 
-
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -155,14 +149,13 @@ public class FloatingKeyboardView extends KeyboardView {
     public void show(View v) {
         this.setVisibility(View.VISIBLE);
         this.setEnabled(true);
-//        windowManager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
 
         // TODO: Correct Position Keyboard
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) getLayoutParams();
         params.topMargin = v.getTop() + v.getHeight();
         params.leftMargin = v.getLeft();
         setLayoutParams(params);
-//        windowManager.addView(this, params);
+
     }
 
     /**
@@ -225,7 +218,6 @@ public class FloatingKeyboardView extends KeyboardView {
                             view.setY(inScreenCoordinates.top);
                             view.setX(inScreenCoordinates.left);
 
-
                             Log.d(TAG, "Parent view is " + view.getParent().toString());
                         }
                         performClick = false;
@@ -274,6 +266,7 @@ public class FloatingKeyboardView extends KeyboardView {
         params.topMargin = y;
         params.leftMargin = x;
         setLayoutParams(params);
+
     }
 
     /**

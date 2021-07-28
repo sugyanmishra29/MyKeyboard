@@ -32,8 +32,7 @@ public class MyKeyboardService extends InputMethodService implements KeyboardVie
     private FloatingKeyboardView fkv;
     private String TAG = "Keyboard";
     private View mFloatingView;
-    private WindowManager mWindowManager;
-
+    private WindowManager windowManager;
 //    private WindowManager.LayoutParams windowParams;
 //    private Context context;
 //    private View rootView;
@@ -108,41 +107,9 @@ public class MyKeyboardService extends InputMethodService implements KeyboardVie
 //        }
 //    }
 
-
     @Override
     public View onCreateInputView() {
         Log.d(TAG, ": onCreateInputView called");
-        // consider kv as rootview
-//        context = getApplicationContext();
-//        context.createWindowContext()
-
-//        mFloatingView = LayoutInflater.from(this).inflate(R.layout.keyboard,null);
-
-//        //Add the view to the window.
-//        final WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams(
-//                WindowManager.LayoutParams.WRAP_CONTENT,
-//                WindowManager.LayoutParams.WRAP_CONTENT,
-//                WindowManager.LayoutParams.TYPE_PHONE,
-//                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-//                PixelFormat.TRANSLUCENT);
-
-//        // TODO: determine where to keep this snippet
-//        //Specify the view position
-//        wmParams.gravity = Gravity.TOP | Gravity.LEFT;        //Initially view will be added to top-left corner
-//        wmParams.x = 0;
-//        wmParams.y = 100;
-//
-//        //Add the view to the window
-//        mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-//        mWindowManager.addView(mFloatingView, wmParams);
-
-//        mFloatingView.findViewById(R.id.keyboardView).setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                return false;
-//            }
-//        });
-
         kv = (FloatingKeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboard = new Keyboard(this,R.xml.qwerty);
         kv.setKeyboard(keyboard);
@@ -151,7 +118,27 @@ public class MyKeyboardService extends InputMethodService implements KeyboardVie
         return kv;
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mFloatingView = FloatingKeyboardView.inflate(getApplicationContext(), R.layout.keyboard, null);
 
+        //Add the view to the window.
+        final WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.TYPE_APPLICATION_PANEL,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                PixelFormat.TRANSLUCENT);
+
+        //Specify the view position
+        wmParams.gravity = Gravity.TOP | Gravity.LEFT;        //Initially view will be added to top-left corner
+        wmParams.x = 0;
+        wmParams.y = 100;
+
+        windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE); // app is crashing
+        windowManager.addView(mFloatingView, wmParams);
+    }
 
     @Override
     public void onPress(int primaryCode) {
